@@ -1,8 +1,13 @@
-import React from 'react'
-import { Player } from 'components/Player'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { game } from 'reducers/game';
+import { Player } from 'components/Player';
 
 export const Square = ({ value, index }) => {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
+    dispatch(game.actions.captureSquare({ index }));
     // TODO send the captureSquare action
   }
 
